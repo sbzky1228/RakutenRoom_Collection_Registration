@@ -1,0 +1,54 @@
+# --- secrets ---
+.env
+*.env
+*.key
+*.pem
+*.spec
+
+# --- drivers / binaries ---
+msedgedriver.exe
+# Windows予約名対策
+NUL
+[Nn][Uu][Ll]
+NUL*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+.envrc
+.venv*/
+
+# --- Tools/Editors ---
+.vscode/
+.idea/
+.DS_Store
+build/
+dist/
+
+# --- Test/Cache ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.ipynb_checkpoints/
+
+# --- 投稿用フォルダ（ルート直下を確実に無視）---
+/投稿素材/
+/投稿済み/
+# 念のため全階層もカバー
+**/投稿素材/**
+**/投稿済み/**
+
+# --- Playwright関連 ---
+.playwright/
+playwright-report/
+token.pickle
+logs/
+client_secret_*.json
+chrome-data/
+EOF

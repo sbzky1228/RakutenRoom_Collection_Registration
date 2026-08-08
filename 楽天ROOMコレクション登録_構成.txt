@@ -1,0 +1,47 @@
+【プロジェクト名】
+RakutenROOM_Collection_Registration
+
+【テーマ】
+楽天ROOMのコレクションに登録
+
+【言語】
+Python
+
+【フレームワーク】
+Playwright
+
+【Googleスプレッドシートの項目】
+A ⇒ ItemURL
+B ⇒ ShopCode
+C ⇒ ItemID
+D ⇒ ItemCode
+E ⇒ ItemName
+F ⇒ CollectionName
+G ⇒ CollectionGenre
+H ⇒ PostStatus
+I ⇒ PostedDate
+J ⇒ CollectionStatus
+K ⇒ CollectedDate
+
+【.env】
+RAKUTEN_USER_ID = "楽天市場のユーザーID"
+RAKUTEN_PASSWORD = "楽天市場のパスワード"
+SPREADSHEET_ID = "GoogleスプレッドシートのID"
+SHEET_NAME = "スプレッドシートのシート名"
+
+【処理内容】
+1.GoogleスプレッドシートのPostStatus列が「済」かつCollectionStatus列に「未」と記載されているセルがあるか確認する。
+　- 「未」があれば2の処理に進む。
+　- 「未」が無ければ7に進む。
+　　- returnで対象がないことを返して、main処理でreturn結果により処理を進めるか終了するか条件分岐させる。
+2.Googleスプレッドシートから楽天ROOMのコレクションに登録するアイテムのItemCodeとItemURLとItemNameとCollectionNameとCollectionGenreをすべて取得する。
+　(※取得した情報はGoogleスプレッドシートの行ごとに管理したいからリストにして取得)
+3.楽天ROOMにログイン。
+4.「myページ」⇒「コレクション」と遷移する。
+5.コレクションに登録する。
+　- CollectionNameがすでに作成されたものであれば、追加登録する。
+　- CollectionNameが存在しない場合は、コレクションの新規作成・登録を行う。(新規作成のとき、CollectionGenreは活用すること。)
+6.コレクションの登録が完了したら、CollectionStatusを「済」、CollectedDateに登録日を記入する。※日付は最初に取得しておくこと。
+※5～６を2で取得した数のみ繰り返すこと。
+7.プログラムを完了する。(開いたページはすべて閉じること。)
+
