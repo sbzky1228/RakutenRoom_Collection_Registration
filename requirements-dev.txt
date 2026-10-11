@@ -1,0 +1,6 @@
+# 開発・テスト用のパッケージ（プログラムの実行には不要）
+# インストール: pip install -r requirements-dev.txt
+-r requirements.txt
+pytest==9.1.1
+pyflakes==4.0.3
+vulture==2.16
