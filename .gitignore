@@ -3,7 +3,9 @@
 *.env
 *.key
 *.pem
+*service_account*.json
 *.spec
+user_data/
 
 # --- drivers / binaries ---
 msedgedriver.exe
